@@ -57,29 +57,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
 import PDashboard from "./Dashboard";
 
-const healthData = [
-    { date: "2023-01", bloodPressure: 120, heartRate: 72 },
-    { date: "2023-02", bloodPressure: 118, heartRate: 70 },
-    { date: "2023-03", bloodPressure: 122, heartRate: 74 },
-    { date: "2023-04", bloodPressure: 119, heartRate: 71 },
-    { date: "2023-05", bloodPressure: 121, heartRate: 73 },
-];
 
-const CustomTooltip = ({ active, payload, label }) => {
-    if (active && payload && payload.length) {
-        return (
-            <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
-                <p className="font-semibold">{label}</p>
-                {payload.map((entry, index) => (
-                    <p key={index} style={{ color: entry.color }}>
-                        {entry.name}: {entry.value}
-                    </p>
-                ))}
-            </div>
-        );
-    }
-    return null;
-};
 
 export default function PatientDashboard() {
     const [darkMode, setDarkMode] = useState(false);
