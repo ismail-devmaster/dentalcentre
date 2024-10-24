@@ -1,0 +1,36 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "jsx": "react-jsx",
+        "strict": true,
+        "isolatedModules": true,
+        "target": "ESNext",
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true,
+        "noEmit": true,
+        "paths": {
+            "@/*": ["./resources/js/*"],
+            "ziggy-js": ["./vendor/tightenco/ziggy"]
+        }
+    },
+    "include": [
+        "resources/js/**/*.js",
+        "resources/js/**/*.jsx",
+        "resources/js/**/*.d.ts",
+        "resources/js/Components/ui/avatar.jsx",
+        "resources/js/Components/ui/badge.jsx",
+        "resources/js/Components/ui/button.jsx",
+        "resources/js/Components/ui/card.jsx",
+        "resources/js/Components/ui/dropdown-menu.jsx",
+        "resources/js/Components/ui/input.jsx",
+        "resources/js/Components/ui/progress.jsx",
+        "resources/js/Components/ui/scroll-area.jsx",
+        "resources/js/Components/ui/tabs.jsx",
+        "resources/js/Components/ui/tooltip.jsx",
+        "resources/js/Pages/Welcome.jsx",
+        "resources/js/app.tsx"
+    ]
+}
