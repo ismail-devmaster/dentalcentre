@@ -57,6 +57,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
 import PDashboard from "./Dashboard";
 import AppointmentsPage from "./Appointments";
+import MyProfilePage from "./Profile";
 
 export default function PatientDashboard() {
     const [darkMode, setDarkMode] = useState(false);
@@ -76,7 +77,7 @@ export default function PatientDashboard() {
     const components = {
         dashboard: <PDashboard />,
         appointments: <AppointmentsPage />,
-        // profile: <ProfilePage />,
+        profile: <MyProfilePage />
         // records: <MedicalRecordsPage />,
         // payments: <PaymentsPage />
     };
@@ -134,7 +135,10 @@ export default function PatientDashboard() {
                         <li>
                             <Button
                                 variant="ghost"
-                                className="w-full justify-start"
+                                className={`w-full justify-start ${
+                                    activeComponent === "profile" ? "bg-blue-500 text-white" : ""
+                                }`}
+                                onClick={() => setActiveComponent("profile")}
                             >
                                 <User className="mr-2 h-4 w-4" />
                                 My Profile
@@ -314,9 +318,6 @@ export default function PatientDashboard() {
                     <div className="content">
                         {components[activeComponent] || <PDashboard />}
                     </div>
-
-                    {/* <PDashboard />
-                    <AppointmentsPage /> */}
                 </div>
             </div>
         </div>
