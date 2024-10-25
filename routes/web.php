@@ -14,18 +14,14 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/receptionist', function () {
+    return Inertia::render('Receptionist/Dashboard');
+})->middleware(['auth', 'verified'])->name('ReceptionistDashboard');
+
 Route::get('/home', function () {
     return Inertia::render('Patient/Home');
 })->middleware(['auth', 'verified'])->name('patienthome');
 
-
-Route::get('/patient', function () {
-    return Inertia::render('PatientDashboard');
-})->middleware(['auth', 'verified'])->name('patient');
-
-Route::get('/appointments', function () {
-    return Inertia::render('Appointments');
-})->middleware(['auth', 'verified'])->name('appointments');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
