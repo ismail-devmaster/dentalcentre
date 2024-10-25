@@ -14,10 +14,6 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Patient/Dashboard');
-})->middleware(['auth', 'verified'])->name('patientDashboard');
-
 Route::get('/home', function () {
     return Inertia::render('Patient/Home');
 })->middleware(['auth', 'verified'])->name('patienthome');
@@ -31,7 +27,7 @@ Route::get('/appointments', function () {
     return Inertia::render('Appointments');
 })->middleware(['auth', 'verified'])->name('appointments');
 
-Route::get('/panel', function () {
+Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
