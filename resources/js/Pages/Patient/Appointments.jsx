@@ -399,7 +399,6 @@ export default function AppointmentsPage() {
                     </TabsContent>
                 </Tabs>
             </main>
-
         </div>
     );
 }

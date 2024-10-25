@@ -56,8 +56,7 @@ import { Progress } from "@/components/ui/progress";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
 import PDashboard from "./Dashboard";
-
-
+import AppointmentsPage from "./Appointments";
 
 export default function PatientDashboard() {
     const [darkMode, setDarkMode] = useState(false);
@@ -70,6 +69,16 @@ export default function PatientDashboard() {
 
     const toggleSidebar = () => {
         setSidebarOpen(!sidebarOpen);
+    };
+
+    const [activeComponent, setActiveComponent] = useState("dashboard");
+
+    const components = {
+        dashboard: <PDashboard />,
+        appointments: <AppointmentsPage />,
+        // profile: <ProfilePage />,
+        // records: <MedicalRecordsPage />,
+        // payments: <PaymentsPage />
     };
 
     return (
@@ -111,7 +120,12 @@ export default function PatientDashboard() {
                         <li>
                             <Button
                                 variant="ghost"
-                                className="w-full justify-start"
+                                className={`w-full justify-start ${
+                                    activeComponent === "dashboard"
+                                        ? "bg-blue-500 text-white"
+                                        : ""
+                                }`}
+                                onClick={() => setActiveComponent("dashboard")}
                             >
                                 <Home className="mr-2 h-4 w-4" />
                                 Dashboard
@@ -129,7 +143,14 @@ export default function PatientDashboard() {
                         <li>
                             <Button
                                 variant="ghost"
-                                className="w-full justify-start"
+                                className={`w-full justify-start ${
+                                    activeComponent === "appointments"
+                                        ? "bg-blue-500 text-white"
+                                        : ""
+                                }`}
+                                onClick={() =>
+                                    setActiveComponent("appointments")
+                                }
                             >
                                 <Calendar className="mr-2 h-4 w-4" />
                                 Appointments
@@ -290,7 +311,12 @@ export default function PatientDashboard() {
                     </div> */}
 
                     {/* Main Dashboard Content */}
-                    <PDashboard />
+                    <div className="content">
+                        {components[activeComponent] || <PDashboard />}
+                    </div>
+
+                    {/* <PDashboard />
+                    <AppointmentsPage /> */}
                 </div>
             </div>
         </div>
